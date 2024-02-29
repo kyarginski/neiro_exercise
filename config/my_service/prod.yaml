@@ -1,0 +1,6 @@
+env: "prod"
+version: "1.0.0"
+ttl: 60
+port: 8260
+use_tracing: true
+tracing_address: "http://host.docker.internal:14268/api/traces"

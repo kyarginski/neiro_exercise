@@ -1,0 +1,118 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "# Description of the REST API of the service for Neiro.",
+    "title": "My Service for Neiro.",
+    "version": "1.0.0"
+  },
+  "host": "localhost",
+  "paths": {
+    "/api/delete/{id}": {
+      "delete": {
+        "description": "Delete value by key.",
+        "summary": "Delete value by key.",
+        "operationId": "DeleteItem",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "The key for delete value.",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad User Request Error"
+          },
+          "404": {
+            "description": "File Not Found Error"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/get/{id}": {
+      "get": {
+        "description": "Get value by ID.",
+        "summary": "Get value by key.",
+        "operationId": "GetItem",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "The key for getting value.",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad User Request Error"
+          },
+          "404": {
+            "description": "File Not Found Error"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/set": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "summary": "Set key and value.",
+        "operationId": "PostItem",
+        "parameters": [
+          {
+            "description": "parameters for report",
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ItemEntry"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "ItemEntry": {
+      "type": "object",
+      "title": "ItemEntry key \u0026 value.",
+      "properties": {
+        "key": {
+          "type": "string",
+          "x-go-name": "Key"
+        },
+        "value": {
+          "type": "string",
+          "x-go-name": "Value"
+        }
+      },
+      "x-go-package": "_/Users/viktorkyarginsky/Work/examples/neiro_exercise/internal/models"
+    }
+  }
+}
