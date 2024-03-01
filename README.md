@@ -25,6 +25,25 @@ You must provide a GitHub repo that includes:
 - a `README.md` file that contains a description of your approach
 - code that can be used to run the project, as well as the description and environment for it
 
+## Service settings
+```yaml
+env: "prod"
+version: "1.0.0"
+ttl: 60
+port: 8260
+use_tracing: true
+tracing_address: "http://host.docker.internal:14268/api/traces"
+```
+
+Service settings are stored in the `config/my_service/prod.yaml` file.
+Values are
+- `env` - environment (local/prod)
+- `version` - service version
+- `ttl` - default time to live for keys (seconds)
+- `port` - service port
+- `use_tracing` - use tracing or not
+- `tracing_address` - tracing address
+
 ## Service run
 
 ```shell
